@@ -1,10 +1,15 @@
 const mongoose = require("mongoose");
 const Item = require("./Item");
 
-mongoose
-    .connect("mongodb://mongo:27017/docker-node-mongo", { useNewUrlParser: true })
-    .then(() => console.log("MongoDB Connected"))
-    .catch((err) => console.log(err));
+
+beforeAll(() => {
+    mongoose
+        .connect("mongodb://mongo:27017/docker-node-mongo", { useNewUrlParser: true })
+        .then(() => console.log("MongoDB Connected"))
+        .catch((err) => console.log(err));
+});
+
+afterAll(() => mongoose.disconnect());
 
 it("can create an item", async () => {
     await Item.deleteMany({});
