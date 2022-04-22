@@ -2,7 +2,7 @@ const { Item, Shop } = require("../src/gilded_rose");
 
 describe("Gilded Rose tests", function () {
     test("quality should not be negative", function () {
-        const aStick = new Shop(
+        const shop = new Shop(
             [
                 new Item(
                     "A stick",
@@ -12,12 +12,12 @@ describe("Gilded Rose tests", function () {
             ]
         );
 
-        const items = aStick.updateQuality();
+        const items = shop.updateQuality();
         expect(items[0].quality).toBeGreaterThanOrEqual(0);
     });
 
     test("quality should be lesser than 50", function () {
-        const swordOfTruth = new Shop(
+        const shop = new Shop(
             [
                 new Item(
                     "Sword of Truth",
@@ -27,24 +27,24 @@ describe("Gilded Rose tests", function () {
             ]
         );
 
-        const items = swordOfTruth.updateQuality();
+        const items = shop.updateQuality();
         expect(items[0].quality).toBeLessThanOrEqual(50);
     });
 
     test("sulfuras item should not expire", function () {
-        const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", -1, 30)]);
-        const items = gildedRose.updateQuality();
+        const shop = new Shop([new Item("Sulfuras, Hand of Ragnaros", -1, 30)]);
+        const items = shop.updateQuality();
         expect(items[0].sellIn).toEqual(-1);
     });
 
     test("sulfuras item should not lose quality", function () {
-        const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", -1, 30)]);
-        const items = gildedRose.updateQuality();
+        const shop = new Shop([new Item("Sulfuras, Hand of Ragnaros", -1, 30)]);
+        const items = shop.updateQuality();
         expect(items[0].quality).toEqual(30);
     });
 
     test("Object must have a quality", function () {
-        const mjolnir = new Shop(
+        const shop = new Shop(
             [
                 new Item(
                     "Mjolnir",
@@ -54,12 +54,12 @@ describe("Gilded Rose tests", function () {
             ]
         );
 
-        const items = mjolnir.updateQuality();
+        const items = shop.updateQuality();
         expect(items[0].quality).toBeDefined();
     });
 
     test("Object must have a sellIn", function() {
-        const elendil = new Shop(
+        const shop = new Shop(
             [
                 new Item(
                     "Elendil",
@@ -69,7 +69,7 @@ describe("Gilded Rose tests", function () {
             ]
         );
 
-        const items = elendil.updateQuality();
+        const items = shop.updateQuality();
         expect(items[0].sellIn).toBeDefined();
     });
 });
