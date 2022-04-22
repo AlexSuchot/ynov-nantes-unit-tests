@@ -95,4 +95,10 @@ describe("Gilded Rose tests", () => {
         expect(items[0].sellIn).toEqual(9);
         expect(items[0].quality).toEqual(19);
     });
+
+    test("Conjured quality must go down 2 times faster", () => {
+        const shop = new Shop([new Item("Conjured mana band", 5, 30)]);
+        const items = shop.updateQuality();
+        expect(items[0].quality).toEqual(28);
+    });
 });
