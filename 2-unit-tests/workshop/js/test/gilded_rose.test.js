@@ -45,4 +45,19 @@ describe("Gilded Rose tests", function() {
         const items = mjolnir.updateQuality();
         expect(items[0].quality).toBeDefined();
     });
+
+    test("Object must have a sellIn", function() {
+        const elendil = new Shop(
+            [
+                new Item(
+                    "Elendil",
+                    2200,
+                    50
+                )
+            ]
+        );
+
+        const items = elendil.updateQuality();
+        expect(items[0].sellIn).toBeDefined();
+    });
 });
