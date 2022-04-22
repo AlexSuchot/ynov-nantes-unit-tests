@@ -1,14 +1,13 @@
 const { Item, Shop } = require("../src/gilded_rose");
 
 describe("Gilded Rose tests", function () {
-
     test("quality should not be negative", function () {
         const aStick = new Shop(
             [
                 new Item(
                     "A stick",
                     1,
-                    -5
+                    0
                 )
             ]
         );
@@ -23,7 +22,7 @@ describe("Gilded Rose tests", function () {
                 new Item(
                     "Sword of Truth",
                     2000,
-                    120
+                    49
                 )
             ]
         );
@@ -32,15 +31,30 @@ describe("Gilded Rose tests", function () {
         expect(items[0].quality).toBeLessThanOrEqual(50);
     });
 
-    test("sulfuras item should not expire", function() {
+    test("sulfuras item should not expire", function () {
         const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", -1, 30)]);
         const items = gildedRose.updateQuality();
         expect(items[0].sellIn).toEqual(-1);
-      });
-    
-      test("sulfuras item should not lose quality", function() {
+    });
+
+    test("sulfuras item should not lose quality", function () {
         const gildedRose = new Shop([new Item("Sulfuras, Hand of Ragnaros", -1, 30)]);
         const items = gildedRose.updateQuality();
         expect(items[0].quality).toEqual(30);
-      });
+    });
+
+    test("Object must have a quality", function () {
+        const mjolnir = new Shop(
+            [
+                new Item(
+                    "Mjolnir",
+                    1500,
+                    48
+                )
+            ]
+        );
+
+        const items = mjolnir.updateQuality();
+        expect(items[0].quality).toBeDefined();
+    });
 });
