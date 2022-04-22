@@ -134,6 +134,11 @@ describe("Gilded Rose tests", () => {
     test("should lower item quality twice over when expired", () => {
         const gildedRose = new Shop([new Item("expired item", 0, 30)]);
         const items = gildedRose.updateQuality();
+    });
+    
+    test("Conjured quality must go down 2 times faster", () => {
+        const shop = new Shop([new Item("Conjured mana band", 5, 30)]);
+        const items = shop.updateQuality();
         expect(items[0].quality).toEqual(28);
     });
 });
