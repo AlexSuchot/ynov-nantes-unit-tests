@@ -130,4 +130,10 @@ describe("Gilded Rose tests", () => {
             expect(items[0].sellIn).toBe(sellIn);
         });
     });
+
+    test("should lower item quality twice over when expired", () => {
+        const gildedRose = new Shop([new Item("expired item", 0, 30)]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toEqual(28);
+    });
 });
