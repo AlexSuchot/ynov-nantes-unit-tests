@@ -1,9 +1,19 @@
-const {Shop, Item} = require("../src/gilded_rose");
+const {Item, Shop} = require("../src/gilded_rose");
 
-describe("Gilded Rose", function() {
-  it("should foo", function() {
-    const gildedRose = new Shop([new Item("foo", 0, 0)]);
+describe("Gilded Rose tests", function() {
+
+  test("quality should not be negative", function() {
+    const aStick = new Shop(
+        [
+            new Item(
+                "A stick",
+                1,
+                -5
+            )
+        ]
+    );
+
     const items = gildedRose.updateQuality();
-    expect(items[0].name).toBe("fixme");
+    expect(items[0].quality).toBeGreaterThanOrEqual(0);
   });
 });
