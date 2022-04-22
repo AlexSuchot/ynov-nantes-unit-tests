@@ -32,15 +32,15 @@ describe("Gilded Rose tests", () => {
     });
 
     test("sulfuras item should not expire", () => {
-        const shop = new Shop([new Item("Sulfuras, Hand of Ragnaros", -1, 30)]);
+        const shop = new Shop([new Item("Sulfuras, Hand of Ragnaros", -1, 80)]);
         const items = shop.updateQuality();
         expect(items[0].sellIn).toEqual(-1);
     });
 
     test("sulfuras item should not lose quality", () => {
-        const shop = new Shop([new Item("Sulfuras, Hand of Ragnaros", -1, 30)]);
+        const shop = new Shop([new Item("Sulfuras, Hand of Ragnaros", -1, 80)]);
         const items = shop.updateQuality();
-        expect(items[0].quality).toEqual(30);
+        expect(items[0].quality).toEqual(80);
     });
 
     test("Object must have a quality", () => {
@@ -94,5 +94,40 @@ describe("Gilded Rose tests", () => {
         const items = shop.updateQuality();
         expect(items[0].sellIn).toEqual(9);
         expect(items[0].quality).toEqual(19);
+    });
+
+    [
+        {
+            item: new Item("Backstage passes to a TAFKAL80ETC concert", 420, 10),
+            quality: 11,
+            sellIn: 419
+        },
+        {
+            item: new Item("Backstage passes to a TAFKAL80ETC concert", 10, 10),
+            quality: 12,
+            sellIn: 9
+        },
+        {
+            item: new Item("Backstage passes to a TAFKAL80ETC concert", 5, 30),
+            quality: 33,
+            sellIn: 4
+        },
+        {
+            item: new Item("Backstage passes to a TAFKAL80ETC concert", 3, 10),
+            quality: 13,
+            sellIn: 2
+        },
+        {
+            item: new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10),
+            quality: 0,
+            sellIn: -1
+        },
+    ].forEach(({ item, quality, sellIn }) => {
+        test(`backstage pass logic when sellIn:${item.sellIn}`, () => {
+            const gildedRose = new Shop([item]);
+            const items = gildedRose.updateQuality();
+            expect(items[0].quality).toBe(quality);
+            expect(items[0].sellIn).toBe(sellIn);
+        });
     });
 });
