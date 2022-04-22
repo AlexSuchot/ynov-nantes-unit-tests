@@ -2,7 +2,7 @@ const {Item, Shop} = require("../src/gilded_rose");
 
 describe("Gilded Rose tests", function() {
 
-  test("quality should not be negative", function() {
+    test("quality should not be negative", function() {
     const aStick = new Shop(
         [
             new Item(
@@ -15,7 +15,7 @@ describe("Gilded Rose tests", function() {
 
     const items = aStick.updateQuality();
     expect(items[0].quality).toBeGreaterThanOrEqual(0);
-  });
+    });
 
     test("quality should be lesser than 50", function() {
         const swordOfTruth = new Shop(
