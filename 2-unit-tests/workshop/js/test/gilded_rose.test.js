@@ -57,4 +57,11 @@ describe("Gilded Rose tests", function () {
         const items = mjolnir.updateQuality();
         expect(items[0].quality).toBeDefined();
     });
+
+    test("Aged Brie quality should increment", () => {
+        const quality = 30;
+        const gildedRose = new Shop([new Item("Aged Brie", 420, quality)]);
+        const items = gildedRose.updateQuality();
+        expect(items[0].quality).toBe(quality + 1);
+    });
 });
