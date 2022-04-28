@@ -1,8 +1,9 @@
 const { Item, Shop, Minesweeper } = require("../src/minesweeper");
 
 describe("tests", () => {
-    test("board size", () => {
-        const game = new Minesweeper(3, 5);
+    test("board count", () => {
+        const game = new Minesweeper();
+
         const [n, m] = game.input[0].split(' ');
         expect(n).toEqual(game.n.toString());
         expect(m).toEqual(game.m.toString());
