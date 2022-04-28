@@ -23,15 +23,17 @@ class Minesweeper {
             if (inputRow.includes(' ')) {
                 const board = [];
                 const [n, m] = inputRow.split(' ');
-                for (let y = 0; y < n; y++) {
-                    const index = i + 1 + y;
-                    const boardRow = [];
-                    for (let x = 0; x < m; x++) {
-                        boardRow.push(this.input[index][x]);
+                if (parseInt(n) && parseInt(m)) {
+                    for (let y = 0; y < n; y++) {
+                        const index = i + 1 + y;
+                        const boardRow = [];
+                        for (let x = 0; x < m; x++) {
+                            boardRow.push(this.input[index][x]);
+                        }
+                        board.push(boardRow);
                     }
-                    board.push(boardRow);
+                    this.boards.push(board);
                 }
-                this.boards.push(board);
             }
         });
 
