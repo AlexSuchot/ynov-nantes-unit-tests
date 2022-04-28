@@ -3,7 +3,7 @@
 const config = {
     verbose: true,
     testMatch: [
-        "**/*.steps.js"
+        "**/*.test.js"
     ],
 };
 

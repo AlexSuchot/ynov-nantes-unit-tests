@@ -1,5 +1,5 @@
 {
-  "name": "gilded-rose-kata",
+  "name": "minesweeper",
   "version": "1.0.0",
   "description": "Minesweeper in JavaScript with Jest",
   "scripts": {
@@ -12,5 +12,10 @@
   "devDependencies": {
     "jest": "^24.9.0",
     "jest-cucumber": "^3.0.1"
-  }
+  },
+  "main": "jest.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": ""
 }
