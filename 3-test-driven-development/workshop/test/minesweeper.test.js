@@ -44,17 +44,10 @@ describe("tests", () => {
     //     }
     // });
 
-    test("Game must contains only stars, dots, and numbers", () => {
+    test("boards must contains only stars and dots", () => {
         const game = new Minesweeper();
-        const regex = /[\d|*|.]*/; // check that row contains only digits, stars, or dot in game
-
-        game.input.forEach((row, i) => {
-            if (!i) return;
-
-            if (row.includes(' ') === true) return;
-            const matchingRegex = row.match(regex)[0];
-            expect(matchingRegex.length).toEqual(row.length)
-        })
+        const regex = /[*|.]/;
+        game.boards.forEach(board => board.forEach(row => row.forEach(tile => expect(tile).toMatch(regex))));
     });
 
     test("Game length (n,m) must be between 0 and 100 excluded", () => {

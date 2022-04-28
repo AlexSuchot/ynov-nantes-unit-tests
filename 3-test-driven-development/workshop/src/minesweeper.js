@@ -1,8 +1,5 @@
 class Minesweeper {
     constructor(input) {
-        
-        this.checkLine = x => x.includes(" ");
-
         this.createRandomInput = () => {
             const input = [];
 
@@ -19,9 +16,7 @@ class Minesweeper {
             }
             return input;
         }
-        
         this.input = !input ? this.createRandomInput() : input;
-        console.log(this.input);
 
         this.boards = [];
         this.input.forEach((inputRow, i) => {
@@ -39,7 +34,6 @@ class Minesweeper {
                 this.boards.push(board);
             }
         });
-        console.log(this.boards);
 
         this.getOutput = () => {
             const output = [];
@@ -68,7 +62,6 @@ class Minesweeper {
             return output;
         }
         this.output = this.getOutput();
-        console.log(this.output);
     }
 }
 
