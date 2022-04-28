@@ -32,18 +32,6 @@ describe("tests", () => {
         });
     });
 
-    // test("board count", () => {
-    //     const game = new Minesweeper();
-
-    //     const [n, m] = game.input[0].split(' ');
-    //     expect(n).toEqual(game.n.toString());
-    //     expect(m).toEqual(game.m.toString());
-    //     expect(game.input.length).toEqual(parseInt(n) + 1);
-    //     for (let i = 0; i < n; i++) {
-    //         expect(game.input[i + 1].length).toEqual(parseInt(m));
-    //     }
-    // });
-
     test("boards must contains only stars and dots", () => {
         const game = new Minesweeper();
         const regex = /[*|.]/;
@@ -62,7 +50,7 @@ describe("tests", () => {
             });
         })
     });
-    
+
     test("No board if dimensions given are 0", () => {
         const game = new Minesweeper(['0 0']);
         expect(game.boards.length).toEqual(0);
