@@ -44,7 +44,7 @@ class Minesweeper {
         this.getOutput = () => {
             const output = [];
             this.boards.forEach((board, i) => {
-                output.push(`Field #${i + 1}`);
+                if (board.length) output.push(`Field #${i + 1}:`);
                 board.forEach((row, y) => {
                     let outputRow = '';
                     row.forEach((tile, x) => {
