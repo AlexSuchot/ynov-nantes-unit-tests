@@ -63,4 +63,13 @@ describe("tests", () => {
         })
 
     });
+
+    test("Game input is array and rows must be of type string", () => {
+        const game = new Minesweeper();
+
+        expect(Array.isArray(game.input)).toBe(true)
+        game.input.forEach((row) => {
+            expect(typeof row).toBe("string");
+        })
+    })
 });
