@@ -59,7 +59,15 @@ describe("tests", () => {
 
     test("Game length (n,m) must be between 0 and 100 excluded", () => {
         const game = new Minesweeper();
-        expect(game.input.length).toBeGreaterThan(0);
-        expect(game.input.length).toBeLessThan(100);
+        game.boards.forEach((board) => {
+            expect(board.length).toBeGreaterThan(0);
+            expect(board.length).toBeLessThan(100);
+
+            board.forEach((row) => {
+                expect(row.length).toBeGreaterThan(0);
+                expect(row.length).toBeLessThan(100);
+            });
+        })
+
     });
 });
