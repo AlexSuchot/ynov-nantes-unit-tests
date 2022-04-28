@@ -25,4 +25,10 @@ describe("tests", () => {
             expect(matchingRegex.length).toEqual(row.length)
         })
     });
+
+    test("Game length (n,m) must be between 0 and 100 excluded", () => {
+        const game = new Minesweeper();
+        expect(game.input.length).toBeGreaterThan(0);
+        expect(game.input.length).toBeLessThan(100);
+    });
 });
