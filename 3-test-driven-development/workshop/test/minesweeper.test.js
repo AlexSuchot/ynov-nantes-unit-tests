@@ -61,7 +61,11 @@ describe("tests", () => {
                 expect(row.length).toBeLessThanOrEqual(100);
             });
         })
-
+    });
+    
+    test("No board if dimensions given are 0", () => {
+        const game = new Minesweeper(['0 0']);
+        expect(game.boards.length).toEqual(0);
     });
 
     test("Game input is array and rows must be of type string", () => {
