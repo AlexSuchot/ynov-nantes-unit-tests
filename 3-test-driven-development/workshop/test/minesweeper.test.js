@@ -50,15 +50,15 @@ describe("tests", () => {
         game.boards.forEach(board => board.forEach(row => row.forEach(tile => expect(tile).toMatch(regex))));
     });
 
-    test("Game length (n,m) must be between 0 and 100 excluded", () => {
+    test("Game length (n,m) must be between 1 and 100", () => {
         const game = new Minesweeper();
         game.boards.forEach((board) => {
             expect(board.length).toBeGreaterThan(0);
-            expect(board.length).toBeLessThan(100);
+            expect(board.length).toBeLessThanOrEqual(100);
 
             board.forEach((row) => {
                 expect(row.length).toBeGreaterThan(0);
-                expect(row.length).toBeLessThan(100);
+                expect(row.length).toBeLessThanOrEqual(100);
             });
         })
     });
