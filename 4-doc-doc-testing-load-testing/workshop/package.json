@@ -19,15 +19,16 @@
     "jest-cucumber": "^3.0.1",
     "jsdom": "^19.0.0",
     "mongoose": "^5.4.1",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "swagger": "^0.7.5"
   },
   "keywords": [
     "e2e",
     "codeceptjs"
   ],
   "devDependencies": {
-    "jest": "^24.9.0",
     "codeceptjs": "^3.3.0",
+    "jest": "^24.9.0",
     "playwright": "^1.19.1",
     "webdriverio": "^6.12.1"
   }
